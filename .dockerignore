@@ -1,0 +1,10 @@
+# Ignore the virtual environment and Git directory
+.venv
+.git
+
+# Ignore specific files
+.gitignore
+.dockerignore
+
+# Ignore Python cache
+__pycache__/
