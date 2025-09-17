@@ -4,15 +4,15 @@ FROM python:3.11-slim
 # Set the working directory inside the container
 WORKDIR /app
 
-# --- FIX: Add 'git' to the list of installed tools ---
 # Install system-level build tools AND git
 RUN apt-get update && apt-get install -y build-essential git
 
 # Copy the requirements file into the container's working directory
 COPY requirements.txt .
 
-# Install the Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# --- FIX: Add a longer timeout for pip ---
+# Install the Python dependencies with a 10-minute timeout
+RUN pip install --no-cache-dir --timeout=600 -r requirements.txt
 
 # Copy the rest of the project files into the container
 COPY . .

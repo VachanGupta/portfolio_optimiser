@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  # The API "kitchen" service
+  api:
+    build: .
+    command: ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    expose:
+      - "8000"
+
+  # The Streamlit "restaurant" service
+  dashboard:
+    build: .
+    command: ["streamlit", "run", "app/dashboard.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    ports:
+      - "8502:8501"
+    depends_on:
+      - api
