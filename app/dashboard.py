@@ -1,13 +1,14 @@
 import streamlit as st
 import pandas as pd
-import requests # For making API requests
+import requests
+import os # Import the 'os' module
 
 # --- Configuration ---
 st.set_page_config(page_title="Intelligent Portfolio Optimizer", layout="wide")
 
-# The URL of our FastAPI backend
-# 'api' is the name we will give our service in Docker Compose
-API_URL = "http://api:8000/predict" 
+# This makes our app flexible for both local (Docker Compose) and cloud deployment.
+# We provide a default value for when we run it locally.
+API_URL = os.getenv("API_URL", "http://api:8000/predict") 
 
 # --- UI Layout ---
 st.title("🤖 Intelligent Stock Portfolio Optimizer")
