@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# Data & Models
+data/
+models/
+*.pkl
+*.pt
+
+# IDEs
+.vscode/
+.idea/
