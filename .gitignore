@@ -8,12 +8,21 @@ env/
 # Environment variables
 .env
 
-# Data & Models
-data/
-models/
-*.pkl
-*.pt
-
 # IDEs
 .vscode/
 .idea/
+
+# --- NEW: Ignore large directories BUT allow essential files ---
+# Ignore all data...
+data/
+# ...but specifically DO NOT ignore the files our app needs
+!data/processed/final_features.csv
+!data/processed/labeled_features.csv
+
+# Ignore all models...
+models/
+# ...but specifically DO NOT ignore our trained model
+!models/xgb_model.joblib
+
+# Ignore notebooks
+notebooks/
